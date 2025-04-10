@@ -1,0 +1,361 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* background-color: .010101;  */
+
+  /* white Background*/
+  background-color: #f2f2f7;
+
+  font-family: "inter", sans-serif;
+}
+
+a,
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  /*background-color: hsl(0, 0%, 12%);*/
+  /*box-shadow: 0 3px 20px 2px rgba(0,0,0,0.1);
+  background-color: white;*/
+
+  /*glassmorphism*/
+  /*
+  background: rgba( 255, 255, 255, 0.33 );
+box-shadow:  0 3px 20px 2px rgba(0,0,0,0.1);
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 3px );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+*/
+/* Background with transparency */
+background-color: rgba(251, 251, 253, 0.8); /* last value is for transparency */
+
+-webkit-backdrop-filter: saturate(180%) blur(20px);
+
+backdrop-filter: saturate(180%) blur(20px);
+
+box-shadow:  0 3px 20px 2px rgba(0,0,0,0.1);
+
+
+/*black*/
+
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  /* transition: transform 0.5s ease; */
+  transition: transform 0.6s ease-in-out; 
+  z-index: 1000; /* Ensure the navbar is above other elements */
+  /* Add other styling as needed */
+}
+
+.navbar .logo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding:3rem;
+}
+
+.navbar .logo a {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 900;
+  font-size: 35px;
+  color: black;
+  margin-left: 12px;
+}
+
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-right: 3rem;
+}
+
+.menu-links {
+  display: flex;
+  gap: 24px;
+  border-right: 1px solid ;
+  padding-inline: 24px;
+}
+
+.menu-links a {
+  font-weight: 500;
+  color: #999999;
+  padding: 8px 16px;
+  transition: 0.3s ease;
+}
+.menu-links a:hover {
+  color: black;
+  transform: translateY(5px);
+}
+.menu-links .active{
+  color: #0aa5ff;
+}
+
+.log-in {
+  font-weight: 500;
+  padding: 12px 22px;
+  background-color: transparent;
+  color: #999999;
+  border-radius: 10px;
+  border: 2px solid #0aa5ff;
+  transition: 0.2s;
+}
+.log-in:hover {
+  background-color: #0aa5ff;
+  color: white;
+}
+
+.menu-btn {
+  font-size: 32px;
+  color: white;
+  display: none;
+  cursor: pointer;
+}
+
+/*section {*/
+/*  height: 100vh;*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  color: rgb(169, 169, 169);*/
+/*}*/
+
+/*section > h1 {*/
+/*  font-size: 4rem;*/
+/*  font-weight: 500;*/
+/*  text-align: center;*/
+/*  text-wrap: balance;*/
+/*}*/
+
+/*dialog {*/
+/*  border: 3px solid black;*/
+/*  border-radius: 7px;*/
+/*  text-shadow: 0.0vh 0.3vh 0.3vh rgba(124, 120, 120, 0.4); */
+/*}*/
+
+
+/*.dialog-menu{*/
+
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*  padding: 3vw;*/
+
+/*  font-size: 5vh;*/
+/*}*/
+
+/*dialog::backdrop{*/
+
+/*}*/
+
+/*.close-button{*/
+/*  color: red;*/
+/*  border: 1.3px solid red;*/
+
+/*  border-radius: 50%;*/
+
+/*  padding: 3px 8px;*/
+/*}*/
+
+
+.menu-icon{
+  display: none;
+}
+
+
+
+
+@media screen and (max-width:960px){
+  .navbar .logo{
+    padding: 0.5rem;
+  }
+  .menu-icon{
+    display: block;
+    position: absolute;
+    right: 2.5rem;
+    color: black;
+    transform: scale(1.6);
+}
+.menu{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  /*
+  right: -100%;
+  */
+  background-color: grey;
+  background: rgba(242, 242, 242, 1);
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 20px );
+-webkit-backdrop-filter: blur( 20px );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+  padding: 6rem 1rem;
+  top: -200vh;
+  right: 0%;
+  transition: 0.33s linear;
+  margin-right: 0;
+  min-height: 100vh;
+  width: 100%;
+}
+.menu.active{
+  right: 0%;
+  top: 0%;
+  transition: 0.3s linear;
+}
+.menu-links{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: 100%;
+}
+.menu-links.active{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+.menu-links a{
+  font-size: larger;
+  padding: 9px 10px;
+}
+
+
+}
+
+@media screen and (max-width: 960px){
+  .navbar{
+    height: 72px;
+    padding: 20px 10px;
+  }
+  .navbar .logo img{
+    width: 60px;
+    height: 60px;
+  }
+  .navbar .logo a{
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar{
+    height: 69px;
+    padding: 20px 10px;
+  }
+  .navbar .logo img{
+    width: 55px;
+    height: 55px;
+  }
+  .navbar .logo a{
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .navbar{
+    height: 55px;
+    padding: 20px 0px;
+  }
+  .navbar .logo img{
+    width: 43px;
+    height: 43px;
+  }
+  .navbar .logo a{
+    font-size: 23px;
+  }
+  .menu-icon{
+    transform: scale(1.3);
+  }
+}
+
+.switch {
+  position: relative;
+  width: 3.5rem;
+  height: 2rem;
+  margin-top: 10px;
+  margin-right: 10%;
+}
+/* Styles for navlink element */
+.navlink {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-left: 10%;
+  padding: 10px 20px;
+  background-color: rgb(215, 215, 228);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.navlink:hover {
+  background-color: rgb(226, 226, 238);
+}
+/* Styles for flex div element */
+.flexdiv {
+  display: flex;
+  justify-content: space-between;
+}
+/* Hide the switch input element */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+/* Styles for slider element */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(215, 215, 228);
+  transition: 0.4s;
+  border-radius: 30px;
+ 
+}
+/* Styles for slider handle */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4rem;
+  width: 1.4rem;
+  border-radius: 20px;
+  left: 0.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(40deg, #ff0080, #ff8c00 70%);
+  transition: 0.4s;
+}
+/* Styles for slider when switch is checked */
+input:checked + .slider {
+  background-color: #37393f;
+}
+/* Styles for slider handle when switch is checked */
+input:checked + .slider:before {
+  left: calc(100% - 1.7rem);
+  background: #37393f;
+  box-shadow: inset -4px -2px 4px -2px #8983f7, inset -10px -4px 0px 0px #a3dafb;
+}
