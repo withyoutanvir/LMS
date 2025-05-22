@@ -1,101 +1,75 @@
 import React from 'react';
 import Navbar from '../components/Navbar.jsx';
-import Footer from '../components/Footer';
-import Money from '../assets/images/Money.jpg';
-import OOPS from "../assets/images/OOPS.png";
-import Spring from  "../assets/images/Spring.png";
-import Refactor from "../assets/images/Refactor.png";
-import Programmer from "../assets/images/Programmer.png";
-import HomeSearch from '../components/HomeSearch';
+import Footer from '../components/Footer.jsx';
+import HomeSearch from '../components/HomeSearch.jsx';
+import Hero from '../components/Hero.jsx';
+import Gitashlok from '../components/Gitashlok.jsx';
 import '../assets/styles/Home.css';
 
-import Hero from "../components/Hero.jsx";
-import Gitashlok from "../components/Gitashlok.jsx";
+const Home = ({ mode, changeMode, meta }) => {
+  // Static fallback books if meta.json missing or empty
+  const fallbackBooks = [
+    {
+      title: "The Psychology of Money",
+      author: "Morgan Housel",
+      imgSrc: "/assets/images/Money.jpg",
+    },
+    {
+      title: "Object Oriented",
+      author: "Matt Weisfeld",
+      imgSrc: "/assets/images/OOPS.png",
+    },
+    {
+      title: "Spring In Action",
+      author: "Manning",
+      imgSrc: "/assets/images/Spring.png",
+    },
+    {
+      title: "The Pragmatic Programmer",
+      author: "Person",
+      imgSrc: "/assets/images/Programmer.png",
+    },
+    {
+      title: "Refactoring",
+      author: "Kent Beck",
+      imgSrc: "/assets/images/Refactor.png",
+    },
+  ];
 
-const Home = ({mode,changeMode}) => {
+  const books = meta?.featuredBooks?.length ? meta.featuredBooks : fallbackBooks;
 
   return (
     <>
-    <Navbar mode={mode} changeMode={changeMode}/>
-    <HomeSearch mode={mode}/>
+      <Navbar mode={mode} changeMode={changeMode} />
+      <HomeSearch mode={mode} />
 
-    {/* Vidya Dadati Vinayam (Knowledge gives humility) - Chapter 4, Verse 39
-        Na Hi Jnanena Sadrisham (There is nothing equal to knowledge.) Chapter: 4 Verse: 39
-    */}
-     <div className='container' >
-    <hr className='home-hr'/>
-
-    <div className='div-featured'>
-      <h1>Featured Books</h1>
-    </div>
-
-    <div className='card-container'>
-
-      <div className="card">
-        <div className="img-box">
-          <img src={Money} alt="Money" loading='lazy' decoding='async'/>
+      <div className='container'>
+        <hr className='home-hr' />
+        <div className='div-featured'>
+          <h1>{meta?.featuredTitle || "Featured Books"}</h1>
         </div>
-        <div className="text-box">
-          <h2>The Psychology of Money</h2>
-          <span>Morgan Housel</span>
+
+        <div className='card-container'>
+          {books.map(({ title, author, imgSrc }, index) => (
+            <div className="card" key={index}>
+              <div className="img-box">
+                <img src={imgSrc} alt={title} loading='lazy' decoding='async' />
+              </div>
+              <div className="text-box">
+                <h2>{title}</h2>
+                <span>{author}</span>
+              </div>
+            </div>
+          ))}
         </div>
+
+        <Hero />
+        <Gitashlok />
       </div>
 
-
-      <div className="card">
-        <div className="img-box">
-          <img src={OOPS} alt="OOPs" loading='lazy' decoding='async'/>
-        </div>
-        <div className="text-box">
-          <h2>Object Oriented</h2>
-          <span>Matt Weisfeld</span>
-        </div>
-      </div>
-
-
-      <div className="card">
-        <div className="img-box">
-          <img src={Spring} alt="Spring book"  loading='lazy' decoding='async' />
-        </div>
-        <div className="text-box">
-          <h2>Spring In Action</h2>
-          <span>Manning</span>
-        </div>
-      </div>
-
-
-      <div className="card">
-        <div className="img-box">
-          <img src={Programmer} alt="Programmer Book" loading='lazy' decoding='async'  />
-        </div>
-        <div className="text-box">
-          <h2>The Pragmatic Programmer</h2>
-          <span>Person</span>
-        </div>
-      </div>
-
-
-      <div className="card">
-        <div className="img-box">
-          <img src={Refactor} alt="Refactor Book" loading='lazy' decoding='async'  />
-        </div>
-        <div className="text-box">
-          <h2>Refactoring</h2>
-          <span>Kent Beck</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div>
-      <Hero/>
-      <Gitashlok/>
-    </div>
-    </div>
-
-    <Footer/>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

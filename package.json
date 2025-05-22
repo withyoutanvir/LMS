@@ -3,15 +3,18 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
+    "homepage": "https://withyoutanvir.github.io/LMS",
     "scripts": {
         "dev": "vite",
         "build": "vite build",
+        "preview": "vite preview",
         "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-        "preview": "vite preview"
+        "deploy": "gh-pages -d dist"
     },
     "dependencies": {
         "@emailjs/browser": "^3.11.0",
         "@react-buddy/ide-toolbox": "^2.4.0",
+        "axios": "^1.9.0",
         "bootstrap": "^5.3.2",
         "cors": "^2.8.5",
         "express": "^5.1.0",
@@ -29,6 +32,7 @@
         "eslint-plugin-react": "^7.32.2",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.3",
+        "gh-pages": "^6.3.0",
         "tailwindcss": "^3.3.3",
         "vite": "^4.4.5"
     }

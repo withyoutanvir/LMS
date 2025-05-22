@@ -1,0 +1,32 @@
+{
+  "name": "Library Meta",
+  "version": "1.0.0",
+  "featuredTitle": "Featured Books",
+  "featuredBooks": [
+    {
+      "title": "The Psychology of Money",
+      "author": "Morgan Housel",
+      "imgSrc": "/assets/images/Money.jpg"
+    },
+    {
+      "title": "Object Oriented",
+      "author": "Matt Weisfeld",
+      "imgSrc": "/assets/images/OOPS.png"
+    },
+    {
+      "title": "Spring In Action",
+      "author": "Manning",
+      "imgSrc": "/assets/images/Spring.png"
+    },
+    {
+      "title": "The Pragmatic Programmer",
+      "author": "Person",
+      "imgSrc": "/assets/images/Programmer.png"
+    },
+    {
+      "title": "Refactoring",
+      "author": "Kent Beck",
+      "imgSrc": "/assets/images/Refactor.png"
+    }
+  ]
+}
