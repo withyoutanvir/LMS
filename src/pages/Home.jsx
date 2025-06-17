@@ -5,6 +5,8 @@ import HomeSearch from '../components/HomeSearch.jsx';
 import Hero from '../components/Hero.jsx';
 import Gitashlok from '../components/Gitashlok.jsx';
 import '../assets/styles/Home.css';
+import PropTypes from 'prop-types';
+
 
 const Home = ({ mode, changeMode, meta }) => {
   // Static fallback books if meta.json missing or empty
@@ -71,5 +73,20 @@ const Home = ({ mode, changeMode, meta }) => {
     </>
   );
 };
+Home.propTypes = {
+  mode: PropTypes.string.isRequired,
+  changeMode: PropTypes.func.isRequired,
+  meta: PropTypes.shape({
+    featuredBooks: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        author: PropTypes.string,
+        imgSrc: PropTypes.string,
+      })
+    ),
+    featuredTitle: PropTypes.string,
+  }),
+};
 
 export default Home;
+
